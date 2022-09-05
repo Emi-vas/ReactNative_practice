@@ -1,11 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button } from 'react-native';
+import Header from './components/Header';
+import List from './components/List';
 
 export default function App() {
+  const [addNew, setAddNew] = useState(false)
+
+  const [todos, setTodos] = useState([
+    {body: "Medit", key: "1"},
+    {body: "Code", key: "2"},
+    {body: "Sport", key: "3"},
+    {body: "Change the world", key: "5"},
+  ])
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header />
+      <View style={styles.content}>
+          <Button 
+            title={addNew ? "Display List" : 'Add New'}
+            onPress={()=> setAddNew(!addNew)}
+           />
+          
+          {
+            addNew ? (
+              <Text>Form</Text>
+            ) : (
+              <List todos={todos} />
+            )
+          }
+      </View>
+
     </View>
   );
 }
@@ -14,7 +39,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 30
   },
+  content: {
+
+  },
+
 });
