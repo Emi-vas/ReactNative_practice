@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button } from 'react-native';
+import Form from './components/Form';
 import Header from './components/Header';
 import List from './components/List';
 
@@ -24,7 +25,7 @@ export default function App() {
           
           {
             addNew ? (
-              <Text>Form</Text>
+              <Form />
             ) : (
               <List todos={todos} />
             )
