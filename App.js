@@ -24,11 +24,7 @@ export default function App() {
            />
           
           {
-            addNew ? (
-              <Form />
-            ) : (
-              <List todos={todos} />
-            )
+            addNew ? <Form /> : <List todos={todos} setTodos={setTodos} />
           }
       </View>
 
