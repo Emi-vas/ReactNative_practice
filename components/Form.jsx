@@ -8,9 +8,15 @@ const Form = ({ setTodos, todos, setAddNew }) => {
     const [valueNewTodo, setValueNewTodo] = useState('')
 
     const addTodo = () => {
-        console.log((todos.length + 1))
+        const getKey = () => {
+            console.log()
+            const lastKey = todos[todos.length -1].key
+            return parseInt(lastKey) + 1
+        }
         setAddNew(false)
-         setTodos([...todos, {body: valueNewTodo, key: (todos.length + 1)}])
+        setTodos([...todos, {body: valueNewTodo, key: getKey() }])
+        
+
     }
 
     return (
