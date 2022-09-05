@@ -11,7 +11,7 @@ export default function App() {
     {body: "Medit", key: "1"},
     {body: "Code", key: "2"},
     {body: "Sport", key: "3"},
-    {body: "Change the world", key: "5"},
+    {body: "Change the world", key: "4"},
   ])
 
   return (
@@ -24,7 +24,7 @@ export default function App() {
            />
           
           {
-            addNew ? <Form /> : <List todos={todos} setTodos={setTodos} />
+            addNew ? <Form setTodos={setTodos} todos={todos} setAddNew={setAddNew}/> : <List todos={todos} setTodos={setTodos} />
           }
       </View>
 
