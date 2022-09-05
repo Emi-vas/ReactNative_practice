@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableWithoutFeedback, Keyboard, Button } from 'react-native';
 import Form from './components/Form';
 import Header from './components/Header';
 import List from './components/List';
@@ -15,6 +15,9 @@ export default function App() {
   ])
 
   return (
+    <TouchableWithoutFeedback
+      onPress={()=> Keyboard.dismiss()}
+    >
     <View style={styles.container}>
       <Header />
       <View style={styles.content}>
@@ -29,6 +32,7 @@ export default function App() {
       </View>
 
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -39,7 +43,7 @@ const styles = StyleSheet.create({
     paddingTop: 30
   },
   content: {
-
+    flex: 0.95
   },
 
 });

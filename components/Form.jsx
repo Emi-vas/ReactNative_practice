@@ -16,7 +16,6 @@ const Form = ({ setTodos, todos, setAddNew }) => {
 
 
         const getKey = () => {
-            console.log()
             const lastKey = todos[todos.length -1].key
             return parseInt(lastKey) + 1
         }
@@ -36,7 +35,12 @@ const Form = ({ setTodos, todos, setAddNew }) => {
                 onPress={addTodo}
             />
             {
-                err && <Text style={styles.err}>Short task is the key, but this is TOO short !</Text>
+                err && 
+                <Text style={styles.err}
+                    onPress={()=> setErr(false)}
+                >
+                    Short task is the key, but this is TO short !
+                </Text>
             }
         </View>
     );
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#d02d2d',
         color: "white",
         fontSize: 15
-    }
+    },
 })
 
 export default Form;
