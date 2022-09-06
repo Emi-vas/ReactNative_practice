@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView  } from 'react-native';
-
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { AntDesign } from '@expo/vector-icons';
 
 const List = ({ todos, setTodos }) => {
   const [confirm, setConfirm] = useState(false)
@@ -32,7 +33,7 @@ const List = ({ todos, setTodos }) => {
                     {
                       confirm.id == item.key && (
                         <TouchableOpacity style={styles.confirm} onPress={deleteItem}>
-                            <Text style={styles.confirmText}> Done ?</Text>
+                            <AntDesign name="checkcircleo" size={50} color="white" style={styles.icon} />
                         </TouchableOpacity>
                         )
                     }
@@ -69,6 +70,10 @@ const styles = StyleSheet.create({
       color: "white",
       padding: 10,
       fontSize: 22
+    },
+    icon: {
+      padding: 7,
+      paddingHorizontal: 20
     }
   
   });
